@@ -1,0 +1,187 @@
+/* Configurações gerais do body */
+body {
+  background-image: url('images/radio.webp'); /* Caminho para a imagem */
+  background-size: cover; /* Ajusta o tamanho para cobrir toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetições da imagem */
+  background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0; /* Remove margem padrão */
+  padding: 0; /* Remove padding padrão */
+}
+
+/* Estilo para o cabeçalho */
+header h1 {
+  background-color: rgba(204, 204, 204, 0.8); /* Fundo com opacidade */
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  color: #006400;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  max-width: 60%; /* Largura máxima */
+  margin: 20px auto;
+  padding: 10px; /* Espaçamento interno */
+}
+
+/* Estilo para o título da música */
+main h2 {
+  background-color: rgba(204, 204, 204, 0.8); /* Fundo com opacidade */
+  border-radius: 10px; /* Bordas arredondadas */
+  max-width: 50%;
+  margin: 20px auto; /* Centraliza horizontalmente */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Estilo para o player de áudio */
+audio {
+  margin-top: 20px;
+  width: 80%;
+}
+
+/* Controles de navegação */
+.controls {
+  background-color: rgba(255, 253, 208, 0.9); /* Fundo levemente opaco */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 30%;
+  padding: 10px;
+}
+
+.control-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8em;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.control-button:hover {
+  transform: scale(1.2);
+}
+
+.control-button:active {
+  transform: scale(1.1);
+}
+
+/* Estilo do botão shuffle */
+#shuffle {
+  background-color: #ffffff; /* Cor padrão */
+  color: #000000; /* Cor padrão do texto */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#shuffle.active {
+  background-color: #555555; /* Cor escura quando ativado */
+  color: #ffffff; /* Texto claro */
+}
+
+/* Efeitos visuais */
+.effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Efeitos animados */
+.effect-1 {
+  background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), transparent);
+  animation: fade 2s infinite alternate;
+}
+
+.effect-2 {
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.5), transparent);
+  animation: zoom 3s infinite alternate;
+}
+
+.effect-3 {
+  background: linear-gradient(to right, rgba(0, 0, 255, 0.5), transparent);
+  animation: slide 4s infinite linear;
+}
+
+.effect-4 {
+  background: repeating-linear-gradient(45deg, #ff0, #ff0 10px, transparent 10px, transparent 20px);
+  animation: moveDiagonal 5s infinite linear;
+}
+
+.effect-5 { background: rgba(255, 255, 255, 0.2); animation: flicker 0.5s infinite; }
+.effect-6 { background: rgba(255, 0, 255, 0.5); animation: rotate 3s infinite linear; }
+.effect-7 { background: rgba(0, 255, 255, 0.5); animation: scaleUp 4s infinite alternate; }
+.effect-8 { background: rgba(255, 100, 50, 0.5); animation: pulse 3s infinite alternate; }
+.effect-9 { background: rgba(50, 255, 100, 0.5); animation: wave 2s infinite linear; }
+.effect-10 { background: rgba(255, 200, 0, 0.5); animation: bounce 1s infinite alternate; }
+
+@keyframes fade { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes zoom { 0% { transform: scale(1); } 100% { transform: scale(1.5); } }
+@keyframes slide { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+@keyframes moveDiagonal { 0% { background-position: 0 0; } 100% { background-position: 100% 100%; } }
+@keyframes flicker { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+@keyframes scaleUp { 0% { transform: scale(1); } 100% { transform: scale(2); } }
+@keyframes pulse { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+@keyframes wave { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+
+/* Equalizador */
+.equalizer-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.equalizer div {
+  width: 10px;
+  height: 30px;
+  background: #fff;
+  transition: height 0.1s;
+}
+
+/* Rodapé */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer em {
+  font-style: italic;
+}
+
+ul {
+  list-style: none; /* Remove os marcadores */
+  padding: 0; /* Remove o espaçamento padrão */
+  margin: 0; /* Remove a margem padrão */
+}
+
+

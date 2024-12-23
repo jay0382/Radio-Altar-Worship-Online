@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rádio Altar Worship Online</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1><code>Altar Worship Online</code></h1>
+  </header>
+
+  <!-- Informações da música -->
+  <main>
+    <h2 id="music-title">Tocando agora: Seja Bem-Vindo</h2>
+    <audio id="player" controls>
+      Seu navegador não suporta o player de áudio.
+    </audio>
+
+    <!-- Controles -->
+    <div class="controls">
+      <button id="prev" class="control-button" aria-label="Anterior">⏪</button>
+      <button id="shuffle" class="control-button" aria-label="Modo aleatório">🔀</button>
+      <button id="next" class="control-button" aria-label="Próximo">⏩</button>
+    </div>
+
+    <!-- Playlist -->
+    <ul id="playlist" class="hidden">
+      <li data-file="PlayList/Meu_Cristo.mp3" data-title="01 Meu Cristo (Adoração Central)"></li>
+      <li data-file="PlayList/Digno.mp3" data-title="02 Digno (Adoração Central)"></li>
+      <li data-file="PlayList/Lapidação.mp3" data-title="03 Lapidação (Adoração Central)"></li>
+      <li data-file="PlayList/Arrebatamento.mp3" data-title="04 Arrebatamento (Adoração Central)"></li>
+      <li data-file="PlayList/Inesquecível.mp3" data-title="05 Inesquecível (Adoração Central)"></li>
+      <li data-file="PlayList/Olho_para_Ti_God_I_Look_To_You.mp3" data-title="06 Olho para Ti-God I Look To You (Adoração Central)"></li>
+      <li data-file="PlayList/Ali_Estava_a_Cruz.mp3" data-title="07 Ali Estava a Cruz (Adoração Central)"></li>
+      <li data-file="PlayList/Avivamento.mp3" data-title="08 Avivamento (Adoração Central)"></li>
+      <li data-file="PlayList/Batimentos.mp3" data-title="09 Batimentos (Adoração Central)"></li>
+      <li data-file="PlayList/Profundo.mp3" data-title="10 Profundo (Adoração Central)"></li>
+      <li data-file="PlayList/Até_Outra_Vez.mp3" data-title="11 Até Outra Vez (Adoração Central)"></li>
+      <li data-file="PlayList/Vencedor.mp3" data-title="12 Vencedor (Adoração Central)"></li>
+      <li data-file="PlayList/Isaías_9.mp3" data-title="13 Isaías 9 (Adoração Central)"></li>
+      <li data-file="PlayList/Para_Ti_Eu_Vou.mp3" data-title="14 Para Ti Eu Vou (Adoração Central)"></li>
+      <li data-file="PlayList/Bondade_de_Deus.mp3" data-title="15 Bondade de Deus (Adoração Central)"></li>
+      <li data-file="PlayList/Canção_da_Sala_do_Trono.mp3" data-title="16 Canção da Sala do Trono (Adoração Central)"></li>
+      <li data-file="PlayList/Saudai_o_Rei_Jesus.mp3" data-title="17 Saudai o Rei Jesus (Adoração Central)"></li>
+      <li data-file="PlayList/Abram_o_Caminho.mp3" data-title="18 Abram o Caminho (Adoração Central)"></li>
+      <li data-file="PlayList/Louvai_O_Nome,_Me_Rendo.mp3" data-title="19 Louvai o Nome, Me Rendo (Adoração Central)"></li>
+      <li data-file="PlayList/A_Casa_é_Sua.mp3" data-title="20 A Casa é Sua (Casa Worship)"></li>
+      <li data-file="PlayList/Era_Eu.mp3" data-title="21 Era Eu (Casa Worship)"></li>
+      <li data-file="PlayList/Vento_Impetuoso.mp3" data-title="22 Vento Impetuoso (Casa Worship)"></li>
+      <li data-file="PlayList/Lenha_e_Fogo.mp3" data-title="23 Lenha e Fogo (Casa Worship)"></li>
+      <li data-file="PlayList/Atraídos_Pelo_Fogo.mp3" data-title="24 Atraídos Pelo Fogo (Casa Worship)"></li>
+      <li data-file="PlayList/Pródigo.mp3" data-title="25 Pródigo (Casa Worship)"></li>
+      <li data-file="PlayList/Faz_Arder.mp3" data-title="26 Faz Arder (Casa Worship)"></li>
+      <li data-file="PlayList/Yeshua.mp3" data-title="27 Yeshua (Casa Worship)"></li>
+      <li data-file="PlayList/Alegria.mp3" data-title="28 Alegria (Casa Worship)"></li>
+      <li data-file="PlayList/Em_Tua_Presença.mp3" data-title="29 Em Tua Presença (Casa Worship)"></li>
+      <li data-file="PlayList/Preciso_de_Ti.mp3" data-title="30 Preciso de Ti (Casa Worship)"></li>
+      <li data-file="PlayList/Não_Se_Apagará.mp3" data-title="31 Não Se Apagará (Casa Worship)"></li>
+      <li data-file="PlayList/Nome_Mais_Lindo.mp3" data-title="32 Nome Mais Lindo (Casa Worship)"></li>
+      <li data-file="PlayList/Sopra.mp3" data-title="33 Sopra (Casa Worship)"></li>
+      <li data-file="PlayList/Quando_Ele_Chega.mp3" data-title="34 Quando Ele Chega (Casa Worship)"></li>
+      <li data-file="PlayList/Vou_Voltar.mp3" data-title="35 Vou Voltar (Casa Worship)"></li>
+      <li data-file="PlayList/A_Esperança_da_Glória.mp3" data-title="36 A Esperança da Glória (Casa Worship)"></li>
+      <li data-file="PlayList/És_Bom_Pra_Mim.mp3" data-title="37 És Bom Pra Mim (Casa Worship)"></li>
+      <li data-file="PlayList/Fumaça.mp3" data-title="38 Fumaça (Casa Worship)"></li>
+      <li data-file="PlayList/Seu_Amor_Me_Persegue.mp3" data-title="39 Seu Amor Me Persegue (Casa Worship)"></li>
+      <li data-file="PlayList/Anseio_Ardente.mp3" data-title="40 Anseio Ardente (Casa Worship)"></li>
+      <li data-file="PlayList/Cordeiro_Que_Venceu.mp3" data-title="41 Cordeiro Que Venceu (Casa Worship)"></li>
+      <li data-file="PlayList/Imperfeito_Eu.mp3" data-title="42 Seu Amor Me Persegue (Casa Worship)"></li>
+      <li data-file="PlayList/Bem_Perto.mp3" data-title="43 Bem Perto (Casa Worship)"></li>
+      <li data-file="PlayList/Lado_do_Altar.mp3" data-title="44 Lado do Altar (Casa Worship)"></li>
+      <li data-file="PlayList/Estou_de_Volta.mp3" data-title="45 Estou de Volta (Casa Worship)"></li>
+      <li data-file="PlayList/Jesus_Tu_És_Santo.mp3" data-title="46 Jesus Tu És Santo (Casa Worship)"></li>
+      <li data-file="PlayList/Não_Sou_Perfeito.mp3" data-title="47 Não Sou Perfeito (Casa Worship)"></li>
+      <li data-file="PlayList/Vejo_as_Estrelas.mp3" data-title="48 Vejo as Estrelas (Casa Worship)"></li>
+      <li data-file="PlayList/Yeshua_Desce.mp3" data-title="49 Yeshua Desce (Casa Worship)"></li>
+      <li data-file="PlayList/Fornalha.mp3" data-title="50 Fornalha (Casa Worship)"></li>
+      <li data-file="PlayList/Adorador_de_Yeshua.mp3" data-title="51 Adorador de Yeshua (Casa Worship)"></li>
+      <li data-file="PlayList/Renovarão.mp3" data-title="52 Renovarão (Casa Worship)"></li>
+      <li data-file="PlayList/Novo_Tempo.mp3" data-title="53 Novo Tempo (Casa Worship)"></li>
+      <li data-file="PlayList/Cordeiro_e_Leão.mp3" data-title="54 Cordeiro e Leão (Central 3)"></li>
+      <li data-file="PlayList/Não_Há_Outro_Lugar.mp3" data-title="55 Não Há Outro Lugar (Central 3)"></li>
+      <li data-file="PlayList/Transfiguração.mp3" data-title="56 Transfiguração (Central 3)"></li>
+      <li data-file="PlayList/Quero_Conhecer_Te_Mais.mp3" data-title="57 Quero Conhecer-Te Mais (Central 3)"></li>
+      <li data-file="PlayList/Tu_És_Bom.mp3" data-title="58 Tu És Bom (Central 3)"></li>
+      <li data-file="PlayList/Para_Ti_Eu_Vou.mp3" data-title="59 Para Ti Eu Vou (Central 3)"></li>
+      <li data-file="PlayList/Tocar_o_Céu.mp3" data-title="60 Tocar o Céu (Central 3)"></li>
+      <li data-file="PlayList/Tudo_a_ver_Com_Ele.mp3" data-title="61 Tudo a Ver Com Ele (Central 3)"></li>
+      <li data-file="PlayList/Coração_do_Pai.mp3" data-title="62 Coração do Pai (Central 3)"></li>
+                                             
+      <!-- Adicione mais músicas aqui -->
+    </ul>
+  </main>
+
+  <!-- Efeitos visuais -->
+  <div id="effect-container" class="effect"></div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>
+      <em>"Louvem ao Senhor com cânticos e com harpa, com cânticos ao som de instrumentos de corda e flauta." – Salmos 150:4</em>
+    </p>
+    <p>© 2024 Altar Worship Online. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
