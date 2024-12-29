@@ -95,7 +95,7 @@ audio {
   z-index: -1;
 }
 
-/* Efeitos animados */
+/* Efeitos animados que alteram apenas cores ou opacidade */
 .effect-1 {
   background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), transparent);
   animation: fade 2s infinite alternate;
@@ -103,35 +103,69 @@ audio {
 
 .effect-2 {
   background: radial-gradient(circle, rgba(0, 255, 0, 0.5), transparent);
-  animation: zoom 3s infinite alternate;
+  animation: colorChange 3s infinite alternate;
 }
 
-.effect-3 {
-  background: linear-gradient(to right, rgba(0, 0, 255, 0.5), transparent);
-  animation: slide 4s infinite linear;
+.effect-5 {
+  background: rgba(255, 255, 255, 0.2);
+  animation: flicker 0.5s infinite;
 }
 
-.effect-4 {
-  background: repeating-linear-gradient(45deg, #ff0, #ff0 10px, transparent 10px, transparent 20px);
-  animation: moveDiagonal 5s infinite linear;
+.effect-8 {
+  background: linear-gradient(to right, rgba(255, 100, 50, 0.5), rgba(0, 255, 255, 0.5));
+  animation: gradientShift 3s infinite alternate;
 }
 
-.effect-5 { background: rgba(255, 255, 255, 0.2); animation: flicker 0.5s infinite; }
-.effect-6 { background: rgba(255, 0, 255, 0.5); animation: rotate 3s infinite linear; }
-.effect-7 { background: rgba(0, 255, 255, 0.5); animation: scaleUp 4s infinite alternate; }
-.effect-8 { background: rgba(255, 100, 50, 0.5); animation: pulse 3s infinite alternate; }
-.effect-9 { background: rgba(50, 255, 100, 0.5); animation: wave 2s infinite linear; }
-.effect-10 { background: rgba(255, 200, 0, 0.5); animation: bounce 1s infinite alternate; }
+.effect-11 {
+  background: conic-gradient(from 0deg, rgba(255, 0, 255, 0.5), rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+  animation: conicColorCycle 4s infinite linear;
+}
 
-@keyframes fade { 0% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes zoom { 0% { transform: scale(1); } 100% { transform: scale(1.5); } }
-@keyframes slide { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-@keyframes moveDiagonal { 0% { background-position: 0 0; } 100% { background-position: 100% 100%; } }
-@keyframes flicker { 0% { opacity: 0.2; } 100% { opacity: 1; } }
-@keyframes scaleUp { 0% { transform: scale(1); } 100% { transform: scale(2); } }
-@keyframes pulse { 0% { opacity: 0.5; } 100% { opacity: 1; } }
-@keyframes wave { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+.effect-12 {
+  background: repeating-linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(255, 255, 0, 0.5) 10px, rgba(0, 0, 255, 0.5) 20px);
+  animation: linearColorCycle 5s infinite alternate;
+}
+
+.effect-13 {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+  animation: radialGlow 6s infinite alternate;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+@keyframes colorChange {
+  0% { background: radial-gradient(circle, rgba(0, 255, 0, 0.5), transparent); }
+  100% { background: radial-gradient(circle, rgba(0, 0, 255, 0.5), transparent); }
+}
+
+@keyframes gradientShift {
+  0% { background: linear-gradient(to right, rgba(255, 100, 50, 0.5), rgba(0, 255, 255, 0.5)); }
+  100% { background: linear-gradient(to right, rgba(0, 255, 255, 0.5), rgba(255, 100, 50, 0.5)); }
+}
+
+@keyframes conicColorCycle {
+  0% { background: conic-gradient(from 0deg, rgba(255, 0, 255, 0.5), rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5)); }
+  100% { background: conic-gradient(from 360deg, rgba(255, 0, 255, 0.5), rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5)); }
+}
+
+@keyframes linearColorCycle {
+  0% { background: repeating-linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(255, 255, 0, 0.5) 10px, rgba(0, 0, 255, 0.5) 20px); }
+  100% { background: repeating-linear-gradient(45deg, rgba(0, 0, 255, 0.5), rgba(255, 0, 0, 0.5) 10px, rgba(255, 255, 0, 0.5) 20px); }
+}
+
+@keyframes radialGlow {
+  0% { background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
+  100% { background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5)); }
+}
+
 
 /* Equalizador */
 .equalizer-container {
