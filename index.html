@@ -15,15 +15,17 @@
   <!-- Informações da música -->
   <main>
 
-    <div id="album-cover">
-    <img id="current-album" src="images/default-cover.jpg" alt="Capa do Álbum">
-    </div>
-  
+     <div id="music-info" class="music-info">
+         <img id="current-album" src="images/default-cover.jpg" alt="Capa do Álbum" />
+         <div id="music-details">
+         <h3 id="music-title"></h3> <!-- Nome da música será preenchido aqui -->
+         <p id="music-artist"></p>  <!-- Nome do artista será preenchido aqui -->
+        </div>
+     </div>
+     <audio id="player" controls>
+     Seu navegador não suporta o player de áudio.
+     </audio>
 
-    <h2 id="music-title">Tocando agora: Seja Bem-Vindo</h2>
-    <audio id="player" controls>
-      Seu navegador não suporta o player de áudio.
-    </audio>
     
     <!-- Controles -->
     <div class="controls">
@@ -34,20 +36,20 @@
 
     <!-- Playlist -->
     <ul id="playlist" class="hidden">
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Meu_Cristo.mp3" data-title="01 Meu Cristo (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Digno.mp3" data-title="02 Digno (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Lapidação.mp3" data-title="03 Lapidação (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Arrebatamento.mp3" data-title="04 Arrebatamento (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Inesquecível.mp3" data-title="05 Inesquecível (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Olho_para_Ti_God_I_Look_To_You.mp3" data-title="06 Olho para Ti-God I Look To You (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Ali_Estava_a_Cruz.mp3" data-title="07 Ali Estava a Cruz (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Batimentos.mp3" data-title="08 Batimentos (Adoração Central)" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2016_Avivamento_Single/Avivamento.mp3" data-title="09 Avivamento (Adoração Central)" data-cover="PlayList/Adoração_Central/2016_Avivamento_Single/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Adoração_Central/2018_Profundo_Single/Profundo.mp3" data-title="10 Profundo (Adoração Central)" data-cover="PlayList/Adoração_Central/2018_Profundo_Single/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Até_Outra_Vez.mp3" data-title="11 Até Outra Vez (Adoração Central)"></li>
-      <li data-file="PlayList/Vencedor.mp3" data-title="12 Vencedor (Adoração Central)"></li>
-      <li data-file="PlayList/Isaías_9.mp3" data-title="13 Isaías 9 (Adoração Central)"></li>
-      <li data-file="PlayList/Para_Ti_Eu_Vou.mp3" data-title="14 Para Ti Eu Vou (Adoração Central)"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Meu_Cristo.mp3" data-title="01 Meu Cristo" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Digno.mp3" data-title="02 Digno" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Lapidação.mp3" data-title="03 Lapidação" data-artist"Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Arrebatamento.mp3" data-title="04 Arrebatamento" data-artist"Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Inesquecível.mp3" data-title="05 Inesquecível" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Olho_para_Ti_God_I_Look_To_You.mp3" data-title="06 Olho para Ti-God I Look To You" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Ali_Estava_a_Cruz.mp3" data-title="07 Ali Estava a Cruz" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/Batimentos.mp3" data-title="08 Batimentos" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2015_Sobre_Coisas_Espirituais/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2016_Avivamento_Single/Avivamento.mp3" data-title="09 Avivamento" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2016_Avivamento_Single/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2018_Profundo_Single/Profundo.mp3" data-title="10 Profundo" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2018_Profundo_Single/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Adoração_Central/2023_Services_Ao_Vivo/Até_Outra_Vez.mp3" data-title="11 Até Outra Vez" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2023_Services_Ao_Vivo/images/Capa.jpg"></li>
+      <li data-file="PlayList/Adoração_Central/2023_Services_Ao_Vivo/Vencedor.mp3" data-title="12 Vencedor" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2023_Services_Ao_Vivo/images/Capa.jpg"></li>
+      <li data-file="PlayList/Adoração_Central/2023_Services_Ao_Vivo/Isaías_9.mp3" data-title="13 Isaías 9" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2023_Services_Ao_Vivo/images/Capa.jpg"></li>
+      <li data-file="PlayList/Adoração_Central/2023_Services_Ao_Vivo/Para_Ti_Eu_Vou.mp3" data-title="14 Para Ti Eu Vou" data-artist="Adoração Central" data-cover="PlayList/Adoração_Central/2023_Services_Ao_Vivo/images/Capa.jpg"></li>
       <li data-file="PlayList/Bondade_de_Deus.mp3" data-title="15 Bondade de Deus (Adoração Central)"></li>
       <li data-file="PlayList/Canção_da_Sala_do_Trono.mp3" data-title="16 Canção da Sala do Trono (Adoração Central)"></li>
       <li data-file="PlayList/Saudai_o_Rei_Jesus.mp3" data-title="17 Saudai o Rei Jesus (Adoração Central)"></li>
@@ -131,7 +133,12 @@
       <li data-file="PlayList/Cia_Worship/2023_Preparai_o_Caminho_Single/Preparai_o_Caminho.mp3" data-title="95 Preparai o Caminho (Cia Worship)"></li>
       <li data-file="PlayList/Deeper_Worship/2019_Mais_Profundo/Minha_Fé.mp3" data-title="96 Minha Fé (Deeper Worship)"></li>
       <li data-file="PlayList/Deeper_Worship/2019_Mais_Profundo/Mais_Profundo.mp3" data-title="97 Mais Profundo (Deeper Worship)"></li>
-
+      <li data-file="PlayList/Deeper_Worship/2019_Mais_Profundo/Vem_Sobre_Mim.mp3" data-title="98 Vem Sobre Mim" data-artist="Deeper Worship" data-cover="PlayList/Deeper_Worship/2019_Mais_Profundo/images/Capa.jpg"></li>
+      <li data-file="PlayList/Deeper_Worship/2019_Mais_Profundo/Filho_Pródigo.mp3" data-title="99 Filho Pródigo" data-artist="Deeper Worship" data-cover="PlayList/Depper_Worship/2019_Mais_Profundo/images/Capa.jpg"></li>
+      <li data-file="PlayList/Deeper_Worship/2019_Mais_Profundo/Santo_The_Stand.mp3" data-title="100 Santo The Stand" data-artist="Deeper Worship" data-cover="PlayList/Depper_Worship/2019_Mais_Profundo/images/Capa.jpg"></li>
+      <li data-file="PlayList/Deeper_Worship/2020_Som_da_Cruz_Single/Som_da_Cruz.mp3" data-title="101 Som da Cruz" data-artist="Deeper Worship" data-cover="PlayList/Depper_Worship/2020_Som_da_Cruz_Single/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Gabriela_Rocha/2014_Pra_Onde_Iremos/Eu_Sou_Teu_Rooftops.mp3" data-title="102 Eu Sou Teu Rooftops" data-artist="Gabriela Rocha" data-cover="PlayList/Gabriela_Rocha/2014_Pra_Onde_Iremos/images/Capa.jpg"></li>
+      <li data-file="PlayList/Gabriela_Rocha/2014_Pra_Onde_Iremos/Meu_Lugar.mp3" data-title="103 Meu Lugar" data-artist="Gabriela Rocha" data-cover="PlayList/Gabriela_Rocha/2014_Pra_Onde_Iremos/images/Capa.jpg"></li>
       <!-- Adicione mais músicas aqui -->
     </ul>
   </main>

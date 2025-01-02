@@ -8,12 +8,15 @@ const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const effectContainer = document.getElementById('effect-container'); // Efeitos visuais
 const title = document.getElementById('music-title'); // Título da música
+const artist = document.getElementById('music-artist'); // Nome do artista
 
 // Obtém a playlist diretamente do HTML
 const playlistItems = document.querySelectorAll('#playlist li');
 const playlist = Array.from(playlistItems).map(item => ({
   file: item.getAttribute('data-file'),
   cover: item.getAttribute('data-cover') || 'images/default-cover.jpg', // Capa da música ou imagem padrão
+  title: item.getAttribute('data-title'), // Nome da música
+  artist: item.getAttribute('data-artist') || 'Artista Desconhecido' // Nome do artista
 }));
 
 // Função para tocar música
@@ -25,9 +28,13 @@ function playMusic(index) {
   }
 
   player.src = music.file;
-  title.innerText = `Tocando agora: ${playlistItems[index].getAttribute('data-title')}`; // Usa o data-title para exibir o nome da música
+
+  // Atualiza as informações da música
+  title.innerText = music.title; // Nome da música
+  artist.innerText = music.artist; // Nome do artista
   albumCover.src = music.cover; // Atualiza a capa do álbum
 
+  // Inicia a reprodução
   player.play().catch(error => console.log('Erro ao tocar a música:', error));
 }
 
@@ -93,3 +100,4 @@ player.addEventListener('play', startRandomEffect);
 
 // Iniciar com a primeira música
 playMusic(currentIndex);
+
