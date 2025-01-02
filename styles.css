@@ -41,6 +41,20 @@ audio {
   width: 80%;
 }
 
+#album-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* Espaçamento entre o 'Tocando agora' e a barra de progresso */
+}
+
+#album-cover img {
+    max-width: 160px; /* Tamanho máximo da capa */
+    max-height: 160px;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ao redor da imagem */
+}
+
 /* Controles de navegação */
 .controls {
   background-color: rgba(255, 253, 208, 0.9); /* Fundo levemente opaco */
