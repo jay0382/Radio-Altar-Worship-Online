@@ -1,3 +1,4 @@
+
 body {
   background-image: url('images/radio.webp'); /* Caminho para a imagem */
   background-size: cover; /* Ajusta o tamanho para cobrir toda a área */
@@ -11,7 +12,122 @@ body {
   padding-bottom: 80px; /* Espaço extra no final da página */
 }
 
-/* Contêiner para o efeito */
+#effect-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Atrás de todos os elementos principais */
+  pointer-events: none; /* Não interfere com os cliques */
+}
+
+.light-beam {
+  position: absolute;
+  top: -30%; /* Começa acima da tela */
+  left: 30%; /* Centralizado */
+  width: 50px; /* Estreito no topo */
+  height: 60%; /* Estende-se além da tela */
+  background: radial-gradient(circle at top, rgba(255, 255, 0, 0.8) 0%, rgba(255, 255, 0, 0) 70%);
+  animation: beam-sweep 6s infinite ease-in-out, beam-color 3s infinite linear;
+  transform: rotate(45deg) scaleY(2); /* Inclinado e alongado */
+  transform-origin: top center;
+  mix-blend-mode: screen; /* Mescla as cores de forma vibrante */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Formato de cone */
+}
+
+.light-beam:nth-child(1) {
+  left: 20%; /* Posição inicial */
+  animation: beam-sweep 6s infinite ease-in-out, beam-color 4s infinite linear;
+  animation-delay: 0s; /* Sem atraso */
+}
+
+.light-beam:nth-child(2) {
+  left: 40%;
+  animation: beam-sweep 6s infinite ease-in-out, beam-color 4s infinite linear;
+  animation-delay: 1s; /* Atraso de 1 segundo */
+}
+
+.light-beam:nth-child(3) {
+  left: 60%;
+  animation: beam-sweep 6s infinite ease-in-out, beam-color 4s infinite linear;
+  animation-delay: 2s; /* Atraso de 2 segundos */
+}
+
+.light-beam:nth-child(4) {
+  left: 80%;
+   animation: beam-sweep 6s infinite ease-in-out, beam-color 4s infinite linear;
+   animation-delay: 3s; /* Atraso de 2 segundos */
+}
+
+/* Animação do movimento dos feixes */
+@keyframes beam-sweep {
+  0% {
+    transform: rotate(-20deg) scaleY(2);
+  }
+  40% {
+    transform: rotate(20deg) scaleY(2);
+  }
+  60% {
+    transform: rotate(-20deg) scaleY(2);
+  }
+  80% {
+    transform: rotate(-20deg) scaleY(2);
+  }
+  100% {
+    transform: rotate(-20deg) scaleY(2);
+  }
+}
+
+/* Animação de troca de cor */
+@keyframes beam-color {
+  0% {
+    background: radial-gradient(circle at top, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0));
+  }
+  25% {
+    background: radial-gradient(circle at top, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0));
+  }
+  50% {
+    background: radial-gradient(circle at top, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0));
+  }
+  75% {
+    background: radial-gradient(circle at top, rgba(255, 255, 0, 0.8), rgba(255, 255, 0, 0)); /* Amarelo */
+  }
+  100% {
+    background: radial-gradient(circle at top, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0)); /* Retorna ao vermelho */
+  }
+}
+
+.smoke-layer {
+  position: absolute;
+  bottom: -20%; /* Começa fora da tela */
+  left: 50%; /* Centralizado */
+  width: 300%; /* Mais largo para preencher a tela */
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 80%);
+  animation: smoke-rise 12s infinite linear, smoke-wobble 6s infinite ease-in-out;
+  opacity: 0.9;
+}
+
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(100%) scale(1);
+  }
+  100% {
+    transform: translateY(-100%) scale(1.5);
+  }
+}
+
+@keyframes smoke-wobble {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15%); /* Oscilação horizontal */
+  }
+}
+
+/* Container para o efeito */
 .cascade {
     position: fixed;
     top: 0;
