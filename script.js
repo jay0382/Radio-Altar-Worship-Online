@@ -1,3 +1,23 @@
+function createParticles(side) {
+        const cascade = document.querySelector(`.cascade.${side}`);
+        setInterval(() => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 50}px`; // Posição aleatória no eixo X
+            particle.style.animationDuration = `${2 + Math.random() * 3}s`; // Duração aleatória
+            cascade.appendChild(particle);
+
+            // Remove a partícula após a animação
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }, 200); // Cria uma nova partícula a cada 200ms
+    }
+
+    // Inicia partículas nos dois lados
+    createParticles('left');
+    createParticles('right');
+
 let currentIndex = 0; // Índice da música atual
 let shuffleMode = false; // Modo aleatório desativado por padrão
 

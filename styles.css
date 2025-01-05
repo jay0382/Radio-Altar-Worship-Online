@@ -11,6 +11,49 @@ body {
   padding-bottom: 80px; /* Espaço extra no final da página */
 }
 
+/* Contêiner para o efeito */
+.cascade {
+    position: fixed;
+    top: 0;
+    width: 50px; /* Largura do efeito */
+    height: 100%; /* Altura total da tela */
+    pointer-events: none; /* Evita interação */
+    z-index: 10; /* Fica acima do conteúdo */
+    overflow: hidden;
+}
+
+.cascade.left {
+    left: 0;
+}
+
+.cascade.right {
+    right: 0;
+}
+
+/* Partículas do efeito */
+.cascade .particle {
+    position: absolute;
+    bottom: 100%; /* Começa fora da tela */
+    width: 5px; /* Largura da partícula */
+    height: 15px; /* Altura da partícula */
+    background: rgba(255, 255, 255, 0.5); /* Cor branca com transparência */
+    border-radius: 50%; /* Forma arredondada */
+    animation: fall 3s linear infinite; /* Animação contínua */
+    opacity: 0.8;
+}
+
+/* Animação de queda */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh); /* Move para o fim da tela */
+        opacity: 0; /* Desaparece ao final */
+    }
+}
+
 /* Estilos responsivos */
 
 /* Ajustes para telas pequenas (até 768px, como celulares em modo retrato) */
