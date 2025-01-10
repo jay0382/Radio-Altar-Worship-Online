@@ -12,6 +12,35 @@ body {
   padding-bottom: 80px; /* Espaço extra no final da página */
 }
 
+#playlist-buttons {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#playlist-buttons button {
+  background-color: #4caf50; /* Cor verde */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#playlist-buttons button:hover {
+  background-color: #45a049; /* Cor verde mais escura no hover */
+}
+
+#playlist-buttons button:active {
+  background-color: #3e8e41; /* Cor mais escura quando clicado */
+}
+
+#playlist-buttons button:focus {
+  outline: none; /* Remove a borda de foco padrão */
+}
+
 #effect-container {
   position: fixed;
   top: 0;
