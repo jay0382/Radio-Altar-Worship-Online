@@ -428,7 +428,7 @@ audio {
   top: 10%;
   left: 20%;
   width: 60%;
-  height: 60%; /* Define uma altura fixa para o modal */
+  height: 70%; /* Define uma altura fixa para o modal */
   overflow-y: auto; /* Habilita a rolagem vertical */
   background: #fff;
   padding: 20px;
