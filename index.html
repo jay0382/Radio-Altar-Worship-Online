@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <!-- Cabeçalho -->
   <header>
     <h1><code>Altar Worship Online</code></h1>
@@ -14,6 +15,8 @@
 
   <!-- Informações da música -->
   <main>
+
+     <div id="digital-clock" style="text-align: center; margin: 10px auto; font-size: 20px; font-weight: bold; color: black;"></div>
 
      <div id="playlist-buttons">
         <button id="btn-playlist1">Ouvir Worship Nacional</button>
@@ -46,6 +49,10 @@
          <p id="music-artist"></p>  <!-- Nome do artista será preenchido aqui -->
         </div>
      </div>
+
+     <div id="view-lyrics">
+     </div>
+ 
      <audio id="player" controls>
      Seu navegador não suporta o player de áudio.
      </audio>
@@ -125,10 +132,10 @@
       <li data-file="PlayList/Central_3/2019_Atos_Single/Atos.mp3" data-title="63 Atos" data-artist="Central 3" data-cover="PlayList/Central_3/2019_Atos_Single/images/Capa.jpeg"></li>
       <li data-file="PlayList/Central_3/2019_Como_Eu_Te_Amo_Single/Como_Eu_Te_Amo_ft_Isaías_Saad.mp3" data-title="64 Como Eu Te Amo ft Isaías Saad" data-artist="Central 3" data-cover="PlayList/Central_3/2019_Como_Eu_Te_Amo_Single/images/Capa.jpeg"></li>
       <li data-file="PlayList/Central_3/2019_Estremecem_Single/Estremecem.mp3" data-title="65 Estremecem" data-artist="Central 3" data-cover="PlayList/Central_3/2019_Estremecem_Single/images/Capa.jpeg"></li>
-      <li data-file="PlayList/Tão_Perto.mp3" data-title="66 Tão Perto (Central 3)"></li>
-      <li data-file="PlayList/Tua_Glória_Que_Me_Beija.mp3" data-title="67 Tua Glória Que Me Beija (Central 3)"></li>
-      <li data-file="PlayList/Cumprirás.mp3" data-title="68 Cumprirás (Central 3)"></li>
-      <li data-file="PlayList/Eterno_ft_Bia_Morandini.mp3" data-title="69 Eterno ft Bia Morandini (Central 3)"></li>
+      <li data-file="PlayList/Central_3/2019_Tão_Perto_Single/Tão_Perto.mp3" data-title="66 Tão Perto" data-artist="Central 3" data-cover="PlayList/Central_3/2019_Tão_Perto_Single/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Central_3/2019_Tua_Glória_Que_Me_Beija_Single/Tua_Glória_Que_Me_Beija.mp3" data-title="67 Tua Glória Que Me Beija" data-artist="Central 3" data-cover="PlayList/Central_3/2019_Tua_Glória_Que_Me_Beija_Single/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Central_3/2020_Cumprirás_Single/Cumprirás.mp3" data-title="68 Cumprirás" data-artist="Central 3" data-cover="PlayList/Central_3/2020_Cumprirás_Single/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Central_3/2020_Eterno_Single/Eterno_ft_Bia_Morandini.mp3" data-title="69 Eterno ft Bia Morandini" data-artist="Central 3" data-cover="PlayList/Central_3/2020_Eterno_Single/images/Capa.jpeg"></li>
       <li data-file="PlayList/Leão_e_o_Trono_ft_Brunão_Morada.mp3" data-title="70 Leão e o Trono ft Brunão Morada (Central 3)"></li>
       <li data-file="PlayList/Tudo_Que_Eu_Preciso.mp3" data-title="71 Tudo Que Eu Preciso (Central 3)"></li>
       <li data-file="PlayList/Sobre_Todo_Nome.mp3" data-title="72 Sobre Todo Nome (Central 3)"></li>
@@ -217,6 +224,8 @@
       <li data-file="PlayList/Gabriel_Guedes/2019_Vitorioso_És_Single/Vitorioso_És.mp3" data-title="155 Vitorioso És" data-artist="Gabriel Guedes" data-cover="PlayList/Gabriel_Guedes/2019_Vitorioso_És_Single/images/Capa.jpeg"></li>
       <li data-file="PlayList/Gabriel_Guedes/2019_Eterno_Presente/Minhas_Gueras.mp3" data-title="156 Minhas Guerras" data-artist="Gabriel Guedes" data-cover="Gabriel_Guedes/2019_Eterno_Presente/images/Capa.jpeg"></li>
       <li data-file="PlayList/Gabriel_Guedes/2019_Eterno_Presente/Eu_Creio.mp3" data-title="157 Eu Creio" data-artist="Gabriel Guedes" data-cover="PlayList/Gabriel_Guedes/2019_Eterno_Presente/images/Capa.jpeg"></li> 
+      <li data-file="PlayList/Gabriel_Guedes/2019_Eterno_Presente/Ele_Vem_ft_Gabriela_Rocha.mp3" data-title="158 Ele Vem ft Gabriela Rocha" data-artist="Gabriel Guedes" data-cover="PlayList/Gabriel_Guedes/2019_Eterno_Presente/images/Capa.jpeg"></li>
+      <li data-file="PlayList/Gabriel_Guedes/2019_Eterno_Presente/Eterno_Presente.mp3" data-title="159 Eterno Presente" data-artist="Gabriel Guedes" data-cover="PlayList/Gabriel_Guedes/2019_Eterno_Presente/images/Capa.jpeg"></li>
     <!-- Adicione mais músicas aqui -->
     </ul>
 
@@ -238,6 +247,10 @@
       <li data-file="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/Nåden_,_Synden.mp3" data-title="14 Nåden ᐳ Synden" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/images/Capa.jpeg"></li>
       <li data-file="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/Allmektig_Gud.mp3" data-title="15 Allmektig Gud" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/images/Capa.jpeg"></li>
       <li data-file="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/Jeg_Overgir_Meg.mp3" data-title="16 Jeg Overgir Meg" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/images/Capa.jpeg"></li>
+      <li data-file="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/I_Alt_Jeg_Gjør.mp3" data-title="17 I Alt Jeg Gjør" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/images/Capa.jpeg"></li>
+      <li data-file="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/Hjerteslag.mp3" data-title="18 Hjerteslag" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2021_Nåden_,_Synden/images/Capa.jpeg"></li>
+      <li data-file="PlayListInter/Noruega/Get_Focused/2023_I_Din_Nærhet/Jesus_Kristus_Er_Den_Samme.mp3" data-title="19 Jesus Kristus Er Den Samme" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2023_I_Din_Nærhet/images/Capa.jpg"></li>
+      <li data-file="PlayListInter/Noruega/Get_Focused/2023_I_Din_Nærhet/Hellig.mp3" data-title="20 Hellig" data-artist="Get Focused" data-cover="PlayListInter/Noruega/Get_Focused/2023_I_Din_Nærhet/images/Capa.jpg"></li> 
     </ul>
 
     <div id="lyrics-modal">

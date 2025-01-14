@@ -1,3 +1,38 @@
+document.addEventListener("DOMContentLoaded", () => {
+    function updateClock() {
+        const clockElement = document.getElementById('digital-clock');
+
+        // Cria um objeto de data no horário de Brasília
+        const brasiliaTime = new Date().toLocaleString('pt-BR', {
+            timeZone: 'America/Sao_Paulo',
+            hour12: false,
+        });
+
+        // Converte a string em um objeto Date
+        const [datePart, timePart] = brasiliaTime.split(' ');
+        const [day, month, year] = datePart.split('/');
+        const [hours, minutes, seconds] = timePart.split(':');
+
+        // Formata a data
+        const monthNames = [
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+        const formattedDate = `${day} ${monthNames[parseInt(month, 10) - 1]} ${year}`;
+
+        // Formata o horário
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+        // Atualiza o elemento HTML com a data e hora formatados
+        clockElement.innerHTML = `${formattedTime} - ${formattedDate}`;
+    }
+
+    // Atualiza o relógio a cada segundo
+    setInterval(updateClock, 1000);
+    updateClock(); // Chama a função imediatamente para exibir ao carregar
+});
+
+
 let currentIndex = 0; // Índice da música atual
 let shuffleMode = false; // Modo aleatório desativado por padrão
 let currentPlaylist = []; // Playlist atualmente em uso
