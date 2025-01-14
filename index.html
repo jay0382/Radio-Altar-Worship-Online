@@ -16,7 +16,9 @@
   <!-- Informações da música -->
   <main>
 
-     <div id="digital-clock" style="text-align: center; margin: 10px auto; font-size: 20px; font-weight: bold; color: black;"></div>
+     <div class="container"> 
+     <div id="digital-clock"></div>
+     </div>
 
      <div id="playlist-buttons">
         <button id="btn-playlist1">Ouvir Worship Nacional</button>
@@ -49,8 +51,13 @@
          <p id="music-artist"></p>  <!-- Nome do artista será preenchido aqui -->
         </div>
      </div>
-
-     <div id="view-lyrics">
+     
+       <!-- Botão de coração -->
+       <button id="favorite-button" class="favorite-button" title="Adicionar aos favoritos">
+         ❤️
+       </button>
+     <div>   
+      <button id="view-lyrics" style="display: none;">Visualizar Letra</button>
      </div>
  
      <audio id="player" controls>

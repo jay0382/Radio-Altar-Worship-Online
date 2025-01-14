@@ -12,25 +12,47 @@ body {
   padding-bottom: 80px; /* Espaço extra no final da página */
 }
 
+#digital-clock {
+  background-color: white; /* Fundo branco */
+  color: black; /* Cor do texto */
+  font-size: 20px; /* Tamanho do texto */
+  font-weight: bold; /* Negrito */
+  text-align: center; /* Centralizado */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  width: fit-content; /* Ajusta ao tamanho do conteúdo */
+  margin: 10px auto; /* Centraliza o elemento horizontalmente */
+}
+
 /* Estilo do botão "Visualizar Letra" */
 #view-lyrics {
-  display: none; /* Oculta o botão inicialmente */
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #007BFF; /* Cor azul para o botão */
+  display: block; /* Torna o botão um elemento em bloco */
+  margin: 10px auto; /* Centraliza horizontalmente */
+  background-color: #007bff; /* Fundo azul */
   color: white; /* Texto branco */
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  border: none;
+  border-radius: 5px; /* Arredonda as bordas */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de mão ao passar por cima */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+#view-lyrics:hover {
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}
+
+/* Ajuste o contêiner para evitar conflitos */
+#music-info {
+  display: flex;
+  flex-direction: column; /* Organiza os filhos verticalmente */
+  align-items: center; /* Centraliza os elementos horizontalmente */
   text-align: center;
 }
 
-/* Efeito hover para o botão */
-#view-lyrics:hover {
-  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
-}
-
+/* Estilo para o botão Plalists */
 #playlist-buttons {
   margin: 20px 0;
   text-align: center;
