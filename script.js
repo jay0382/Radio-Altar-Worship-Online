@@ -211,3 +211,45 @@ loadPlaylists();
 currentPlaylist = availablePlaylists["playlist"];
 playMusic(currentIndex);
 
+// Selecionar o botão de Sleep Timer
+const sleepTimerButton = document.getElementById("sleep-timer-button");
+
+// Variável para armazenar o timer
+let sleepTimer = null;
+
+// Função para programar o Sleep Timer
+sleepTimerButton.addEventListener("click", () => {
+  // Perguntar ao usuário o tempo para o Sleep Timer (em minutos)
+  const minutes = parseInt(prompt("Digite o tempo para o Sleep Timer (em minutos):"));
+
+  if (isNaN(minutes) || minutes <= 0) {
+    alert("Por favor, insira um número válido.");
+    return;
+  }
+
+  const milliseconds = minutes * 60 * 1000;
+
+  // Cancelar qualquer timer anterior
+  if (sleepTimer) {
+    clearTimeout(sleepTimer);
+  }
+
+  // Exibir mensagem de confirmação
+  alert(`Sleep Timer programado para ${minutes} minuto(s).`);
+
+  // Programar a parada da música após o tempo especificado
+  sleepTimer = setTimeout(() => {
+    player.pause(); // Parar a reprodução
+    alert("Sleep Timer: Música pausada.");
+    sleepTimer = null; // Resetar o timer
+  }, milliseconds);
+});
+
+// Função opcional para cancelar o Sleep Timer
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && sleepTimer) { // Pressionar "Esc" para cancelar
+    clearTimeout(sleepTimer);
+    sleepTimer = null;
+    alert("Sleep Timer cancelado.");
+  }
+});
