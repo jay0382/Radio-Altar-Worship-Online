@@ -1,6 +1,6 @@
 
 body {
-  background-image: url('images/radio.webp'); /* Caminho para a imagem */
+  background-image: url('images/Fundo2.webp'); /* Caminho para a imagem */
   background-size: cover; /* Ajusta o tamanho para cobrir toda a área */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita repetições da imagem */
@@ -10,6 +10,41 @@ body {
   margin: 0; /* Remove margem padrão */
   padding: 0; /* Remove padding padrão */
   padding-bottom: 80px; /* Espaço extra no final da página */
+}
+
+/* Contêiner para o efeito */
+.background-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca atrás dos elementos principais */
+    pointer-events: none; /* Não interfere na interação com outros elementos */
+    overflow: hidden;
+}
+
+/* Símbolos musicais */
+.symbol {
+    position: absolute;
+    font-size: 40px; /* Tamanho dos símbolos */
+    color: rgba(0, 0, 0, 0.5); /* Preto translúcido */
+    animation: float 10s linear infinite;
+}
+
+/* Animação dos símbolos */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 #digital-clock {
@@ -220,19 +255,19 @@ body {
 .cascade .particle {
     position: absolute;
     bottom: 100%; /* Começa fora da tela */
-    width: 5px; /* Largura da partícula */
-    height: 15px; /* Altura da partícula */
+    width: 3px; /* Largura da partícula */
+    height: 10px; /* Altura da partícula */
     background: rgba(255, 255, 255, 0.5); /* Cor branca com transparência */
     border-radius: 50%; /* Forma arredondada */
-    animation: fall 3s linear infinite; /* Animação contínua */
-    opacity: 0.8;
+    animation: fall 2s linear infinite; /* Animação contínua */
+    opacity: 0.9;
 }
 
 /* Animação de queda */
 @keyframes fall {
     0% {
         transform: translateY(0);
-        opacity: 0.8;
+        opacity: 0.9;
     }
     100% {
         transform: translateY(100vh); /* Move para o fim da tela */

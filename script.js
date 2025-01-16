@@ -1,17 +1,52 @@
+// Função para efeito partituras 
+document.addEventListener('DOMContentLoaded', () => {
+    const background = document.querySelector('.background-effect');
+    const symbols = ['♪', '♫', '♬', '♩', '♭', '♯', '𝄞', '𝄢', '𝄡', '♮', '♯']; // Símbolos musicais
+
+    function createSymbol() {
+        const symbol = document.createElement('div');
+        symbol.className = 'symbol';
+        symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        symbol.style.left = `${Math.random() * 100}%`; // Posição horizontal aleatória
+        symbol.style.fontSize = `${Math.random() * 20 + 20}px`; // Tamanho aleatório
+        symbol.style.animationDuration = `${Math.random() * 5 + 5}s`; // Duração aleatória
+        background.appendChild(symbol);
+
+        // Remove o símbolo após a animação
+        setTimeout(() => {
+            symbol.remove();
+        }, 10000); // Deve ser igual à duração máxima da animação
+    }
+
+    // Gera novos símbolos a cada 300ms
+    setInterval(createSymbol, 300);
+});
+
+// Função para relógio
 document.addEventListener("DOMContentLoaded", () => {
     function updateClock() {
         const clockElement = document.getElementById('digital-clock');
 
         // Cria um objeto de data no horário de Brasília
-        const brasiliaTime = new Date().toLocaleString('pt-BR', {
+        const now = new Date();
+        const brasiliaTime = new Date(now.toLocaleString('en-US', {
             timeZone: 'America/Sao_Paulo',
-            hour12: false,
-        });
+        }));
 
-        // Converte a string em um objeto Date
-        const [datePart, timePart] = brasiliaTime.split(' ');
-        const [day, month, year] = datePart.split('/');
-        const [hours, minutes, seconds] = timePart.split(':');
+        // Dias da semana
+        const weekDays = [
+            "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
+            "Quinta-feira", "Sexta-feira", "Sábado"
+        ];
+
+        // Obtem o dia, mês, ano, e hora
+        const day = brasiliaTime.getDate().toString().padStart(2, '0');
+        const month = (brasiliaTime.getMonth() + 1).toString().padStart(2, '0');
+        const year = brasiliaTime.getFullYear();
+        const hours = brasiliaTime.getHours().toString().padStart(2, '0');
+        const minutes = brasiliaTime.getMinutes().toString().padStart(2, '0');
+        const seconds = brasiliaTime.getSeconds().toString().padStart(2, '0');
+        const weekDayName = weekDays[brasiliaTime.getDay()]; // Obtém o dia da semana
 
         // Formata a data
         const monthNames = [
@@ -23,15 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Formata o horário
         const formattedTime = `${hours}:${minutes}:${seconds}`;
 
-        // Atualiza o elemento HTML com a data e hora formatados
-        clockElement.innerHTML = `${formattedTime} - ${formattedDate}`;
+        // Atualiza o elemento HTML com a data, hora e dia da semana
+        clockElement.innerHTML = `${formattedTime} - ${weekDayName}, ${formattedDate}`;
     }
 
     // Atualiza o relógio a cada segundo
     setInterval(updateClock, 1000);
     updateClock(); // Chama a função imediatamente para exibir ao carregar
 });
-
 
 let currentIndex = 0; // Índice da música atual
 let shuffleMode = false; // Modo aleatório desativado por padrão
@@ -252,4 +286,30 @@ document.addEventListener("keydown", (event) => {
     sleepTimer = null;
     alert("Sleep Timer cancelado.");
   }
+});
+
+// Função para efeito cascata 
+document.addEventListener('DOMContentLoaded', () => {
+    function createParticle(container) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`; // Entre 0.5s e 2s
+        particle.style.animationDelay = `${Math.random() * 0.5}s`; // Pequeno atraso
+        container.appendChild(particle);
+
+        // Remove a partícula após a animação
+        setTimeout(() => {
+            particle.remove();
+        }, 2000); // Deve corresponder à duração máxima da animação
+    }
+
+    const leftCascade = document.querySelector('.cascade.left');
+    const rightCascade = document.querySelector('.cascade.right');
+
+    if (leftCascade && rightCascade) {
+        // Reduz o intervalo para criar mais partículas
+        setInterval(() => createParticle(leftCascade), 100); // Mais frequente na esquerda
+        setInterval(() => createParticle(rightCascade), 100); // Mais frequente na direita
+    }
 });
