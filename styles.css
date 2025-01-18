@@ -117,6 +117,40 @@ body {
   outline: none; /* Remove a borda de foco padrão */
 }
 
+/* Função para filtro de artista */
+.artist-filter {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#artist-input {
+  width: 250px; /* Largura do campo de entrada */
+  height: 30px; /* Altura do campo */
+  font-size: 16px; /* Tamanho do texto */
+  padding: 10px; /* Espaçamento interno */
+  border: 2px solid #ccc; /* Borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  margin-right: 10px; /* Espaço entre o campo e o botão */
+}
+
+#filter-artist-button {
+  height: 30px; /* Altura do botão */
+  font-size: 16px; /* Tamanho do texto */
+  padding: 0 20px; /* Espaçamento interno horizontal */
+  background-color: #007bff; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de clique */
+}
+
+#filter-artist-button:hover {
+  background-color: #555;
+}
+
+/* Função para efeitos feixes de luzes */
 #effect-container {
   position: fixed;
   top: 0;

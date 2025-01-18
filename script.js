@@ -22,49 +22,118 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(createSymbol, 300);
 });
 
-// Função para relógio
-document.addEventListener("DOMContentLoaded", () => {
-    function updateClock() {
-        const clockElement = document.getElementById('digital-clock');
+// Variável para armazenar os dados do clima
+let currentWeatherData = null;
 
-        // Cria um objeto de data no horário de Brasília
-        const now = new Date();
-        const brasiliaTime = new Date(now.toLocaleString('en-US', {
-            timeZone: 'America/Sao_Paulo',
-        }));
+// Função para obter localização do usuário
+function getUserLocation(callback) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                console.log("Localização obtida:", { latitude, longitude });
+                callback(latitude, longitude);
+            },
+            (error) => {
+                console.error("Erro ao obter localização:", error.message);
+                alert("Não foi possível obter sua localização.");
+            }
+        );
+    } else {
+        alert("Geolocalização não é suportada pelo seu navegador.");
+    }
+}
 
-        // Dias da semana
-        const weekDays = [
-            "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
-            "Quinta-feira", "Sexta-feira", "Sábado"
-        ];
+// Função para obter informações do clima do OpenWeatherMap
+function getWeather(latitude, longitude, callback) {
+    const apiKey = "5bf2b65c5212135fb230d1432dd6bb3b"; // Substitua pela sua chave do OpenWeatherMap
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt_br&appid=${apiKey}`;
 
-        // Obtem o dia, mês, ano, e hora
-        const day = brasiliaTime.getDate().toString().padStart(2, '0');
-        const month = (brasiliaTime.getMonth() + 1).toString().padStart(2, '0');
-        const year = brasiliaTime.getFullYear();
-        const hours = brasiliaTime.getHours().toString().padStart(2, '0');
-        const minutes = brasiliaTime.getMinutes().toString().padStart(2, '0');
-        const seconds = brasiliaTime.getSeconds().toString().padStart(2, '0');
-        const weekDayName = weekDays[brasiliaTime.getDay()]; // Obtém o dia da semana
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`Erro na API de clima: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            const temperature = Math.round(data.main.temp);
+            const humidity = data.main.humidity;
+            const weatherDescription = data.weather[0].description;
+            const city = data.name;
 
-        // Formata a data
-        const monthNames = [
-            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-        ];
-        const formattedDate = `${day} ${monthNames[parseInt(month, 10) - 1]} ${year}`;
+            console.log("Dados de clima obtidos:", { temperature, humidity, weatherDescription, city });
 
-        // Formata o horário
-        const formattedTime = `${hours}:${minutes}:${seconds}`;
+            callback({ temperature, humidity, weatherDescription, city });
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar clima:", error);
+            alert("Não foi possível obter informações do clima.");
+        });
+}
 
-        // Atualiza o elemento HTML com a data, hora e dia da semana
-        clockElement.innerHTML = `${formattedTime} - ${weekDayName}, ${formattedDate}`;
+// Função para atualizar o relógio
+function updateClock() {
+    const clockElement = document.getElementById("digital-clock");
+
+    const now = new Date();
+    const brasiliaTime = new Date(now.toLocaleString("en-US", {
+        timeZone: "America/Sao_Paulo",
+    }));
+
+    const weekDays = [
+        "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
+        "Quinta-feira", "Sexta-feira", "Sábado"
+    ];
+
+    const day = brasiliaTime.getDate().toString().padStart(2, "0");
+    const month = (brasiliaTime.getMonth() + 1).toString().padStart(2, "0");
+    const year = brasiliaTime.getFullYear();
+    const hours = brasiliaTime.getHours().toString().padStart(2, "0");
+    const minutes = brasiliaTime.getMinutes().toString().padStart(2, "0");
+    const seconds = brasiliaTime.getSeconds().toString().padStart(2, "0");
+    const weekDayName = weekDays[brasiliaTime.getDay()];
+
+    const monthNames = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+    const formattedDate = `${day} ${monthNames[parseInt(month, 10) - 1]} ${year}`;
+    const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+    // Verifica se há dados de clima
+    let weatherInfo = "";
+    if (currentWeatherData) {
+        const { temperature, humidity, weatherDescription, city } = currentWeatherData;
+        weatherInfo = `<br>${city} - ${temperature}°C, ${weatherDescription}, Umidade: ${humidity}%`;
     }
 
+    // Atualiza o elemento HTML com a data, hora e clima
+    clockElement.innerHTML = `${formattedTime} - ${weekDayName}, ${formattedDate}${weatherInfo}`;
+}
+
+// Função para atualizar automaticamente as informações do clima
+function updateWeatherAutomatically(latitude, longitude) {
+    function fetchWeather() {
+        getWeather(latitude, longitude, (weatherData) => {
+            currentWeatherData = weatherData; // Armazena os dados do clima
+        });
+    }
+
+    fetchWeather(); // Atualiza o clima imediatamente ao carregar
+    setInterval(fetchWeather, 300000); // Atualiza o clima a cada 5 minutos
+}
+
+// Inicialização
+document.addEventListener("DOMContentLoaded", () => {
     // Atualiza o relógio a cada segundo
     setInterval(updateClock, 1000);
-    updateClock(); // Chama a função imediatamente para exibir ao carregar
+
+    // Atualiza o clima periodicamente
+    getUserLocation((latitude, longitude) => {
+        updateWeatherAutomatically(latitude, longitude);
+    });
 });
 
 let currentIndex = 0; // Índice da música atual
@@ -244,6 +313,49 @@ loadPlaylists();
 // Inicializar com a primeira playlist por padrão
 currentPlaylist = availablePlaylists["playlist"];
 playMusic(currentIndex);
+
+// Selecionar os elementos
+const artistInput = document.getElementById("artist-input");
+const filterArtistButton = document.getElementById("filter-artist-button");
+const musicList = document.querySelectorAll("li[data-artist]"); // Selecionar todas as músicas
+
+// Função para filtrar músicas pelo artista
+function filterByArtist() {
+  const artistName = artistInput.value.trim().toLowerCase(); // Obter o nome do artista
+
+  if (!artistName) {
+    alert("Por favor, digite o nome de um artista.");
+    return;
+  }
+
+  // Criar uma nova playlist baseada no filtro
+  const filteredPlaylist = [];
+  musicList.forEach((music) => {
+    const artist = music.getAttribute("data-artist").toLowerCase();
+    if (artist.includes(artistName)) {
+      // Adicionar música à nova playlist
+      filteredPlaylist.push({
+        file: music.getAttribute("data-file"),
+        title: music.getAttribute("data-title"),
+        artist: music.getAttribute("data-artist"),
+        cover: music.getAttribute("data-cover"),
+      });
+    }
+  });
+
+  if (filteredPlaylist.length === 0) {
+    alert(`Nenhuma música encontrada para o artista: ${artistName}`);
+    return;
+  }
+
+  // Atualizar a playlist atual e reiniciar a reprodução
+  currentPlaylist = filteredPlaylist;
+  currentIndex = 0;
+  playMusic(currentIndex);
+}
+
+// Associar o evento ao botão de filtrar
+filterArtistButton.addEventListener("click", filterByArtist);
 
 // Selecionar o botão de Sleep Timer
 const sleepTimerButton = document.getElementById("sleep-timer-button");
