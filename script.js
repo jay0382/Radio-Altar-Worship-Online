@@ -293,18 +293,21 @@ btnPlaylist1.addEventListener("click", () => {
   currentPlaylist = availablePlaylists["playlist"];
   currentIndex = 0;
   playMusic(currentIndex);
+  clearArtistInput(); // Limpar o campo ao trocar para Playlist1
 });
 
 btnPlaylist2.addEventListener("click", () => {
   currentPlaylist = availablePlaylists["playlist2"];
   currentIndex = 0;
   playMusic(currentIndex);
+  clearArtistInput(); // Limpar o campo ao trocar para Playlist2
 });
 
 btnCombined.addEventListener("click", () => {
   currentPlaylist = combinedPlaylist;
   currentIndex = 0;
   playMusic(currentIndex);
+  clearArtistInput(); // Limpar o campo ao trocar para Playlist Combined
 });
 
 // Carregar playlists
@@ -318,6 +321,11 @@ playMusic(currentIndex);
 const artistInput = document.getElementById("artist-input");
 const filterArtistButton = document.getElementById("filter-artist-button");
 const musicList = document.querySelectorAll("li[data-artist]"); // Selecionar todas as músicas
+
+// Função para limpar o campo de entrada
+function clearArtistInput() {
+  artistInput.value = ""; // Limpa o valor do campo
+}
 
 // Função para filtrar músicas pelo artista
 function filterByArtist() {
