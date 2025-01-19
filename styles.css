@@ -150,6 +150,21 @@ body {
   background-color: #555;
 }
 
+.favorite-button {
+  background-color: transparent;
+  border: none;
+  font-size: 35px;
+  color: red; /* Cor padrão */
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.favorite-button:hover {
+  color: blue; /* Cor ao passar o mouse */
+  font-size: 40px; /* Aumenta o tamanho ao passar o mouse */
+}
+
 /* Função para efeitos feixes de luzes */
 #effect-container {
   position: fixed;

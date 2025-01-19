@@ -317,6 +317,52 @@ loadPlaylists();
 currentPlaylist = availablePlaylists["playlist"];
 playMusic(currentIndex);
 
+// Array para armazenar músicas favoritas
+let favoritePlaylist = [];
+
+// Selecionar botão "Ouvir Favoritos"
+const btnFavorites = document.getElementById("btnFavorites");
+
+// Função para adicionar/remover uma música dos favoritos
+function toggleFavoriteMusic(index) {
+  const music = currentPlaylist[index];
+
+  // Verificar se a música já está nos favoritos
+  const favoriteIndex = favoritePlaylist.findIndex((fav) => fav.title === music.title);
+
+  if (favoriteIndex !== -1) {
+    // Se já está, remover dos favoritos
+    favoritePlaylist.splice(favoriteIndex, 1);
+    alert(`Música removida dos favoritos: ${music.title}`);
+  } else {
+    // Caso contrário, adicionar aos favoritos
+    favoritePlaylist.push(music);
+    alert(`Música adicionada aos favoritos: ${music.title}`);
+  }
+}
+
+// Evento para tocar a playlist de favoritos
+btnFavorites.addEventListener("click", () => {
+  if (favoritePlaylist.length === 0) {
+    alert("A playlist de favoritos está vazia!");
+    return;
+  }
+
+  // Configurar a playlist atual como favoritos
+  currentPlaylist = favoritePlaylist;
+  currentIndex = 0;
+  playMusic(currentIndex);
+});
+
+// Selecionar o botão de coração
+const favoriteButton = document.getElementById("favorite-button");
+
+// Evento de clique para adicionar/remover dos favoritos
+favoriteButton.addEventListener("click", () => {
+  toggleFavoriteMusic(currentIndex);
+});
+
+
 // Selecionar os elementos
 const artistInput = document.getElementById("artist-input");
 const filterArtistButton = document.getElementById("filter-artist-button");
