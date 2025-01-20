@@ -150,21 +150,6 @@ body {
   background-color: #555;
 }
 
-.favorite-button {
-  background-color: transparent;
-  border: none;
-  font-size: 35px;
-  color: red; /* Cor padrão */
-  cursor: pointer;
-  margin-top: 10px;
-  transition: all 0.3s ease; /* Adiciona uma transição suave */
-}
-
-.favorite-button:hover {
-  color: blue; /* Cor ao passar o mouse */
-  font-size: 40px; /* Aumenta o tamanho ao passar o mouse */
-}
-
 /* Função para efeitos feixes de luzes */
 #effect-container {
   position: fixed;
@@ -542,6 +527,25 @@ audio {
 #shuffle.active {
   background-color: #555555; /* Cor escura quando ativado */
   color: #ffffff; /* Texto claro */
+}
+
+/* Estilo do botão Favorito dentro dos controles */
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2em; /* Ajuste o tamanho para ficar proporcional */
+  color: blue; /* Cor inicial */
+  transition: transform 0.2s, color 0.3s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.2); /* Efeito de hover */
+  color: blue; /* Cor ao passar o mouse */
+}
+
+.favorite-button:active {
+  transform: scale(1.1); /* Efeito ao clicar */
 }
 
 #lyrics-modal {

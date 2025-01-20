@@ -1,3 +1,42 @@
+// Função para anunciar a hora atual
+function announceTime() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+
+  // Configurando a mensagem
+  let message = `Agora são ${hours} horas`;
+  if (minutes > 0) {
+    message += ` e ${minutes} minutos`;
+  }
+
+  // Usando a Web Speech API para falar a hora
+  const speech = new SpeechSynthesisUtterance(message);
+  speech.lang = "pt-BR"; // Configura o idioma para português
+  speech.volume = 1; // Volume máximo
+  speech.rate = 1; // Velocidade normal
+  speech.pitch = 1; // Tom normal
+
+  // Fala a mensagem
+  window.speechSynthesis.speak(speech);
+}
+
+// Função para verificar a cada minuto
+function startHourlyAnnouncements() {
+  setInterval(() => {
+    const now = new Date();
+    const minutes = now.getMinutes();
+
+    // Verifica se é múltiplo de 15 (0, 15, 30, 45)
+    if (minutes % 15 === 0) {
+      announceTime();
+    }
+  }, 60000); // Executa a cada minuto
+}
+
+// Inicia o sistema de anúncios ao carregar a página
+startHourlyAnnouncements();
+
 // Função para efeito partituras 
 document.addEventListener('DOMContentLoaded', () => {
     const background = document.querySelector('.background-effect');
